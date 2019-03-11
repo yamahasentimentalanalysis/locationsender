@@ -27,6 +27,7 @@
     "agm-direction": "^0.7.6",
     "amqp-ts": "^1.4.0",
     "amqplib": "^0.5.3",
+    "angular2-uuid": "^1.1.1",
     "core-js": "^2.5.4",
     "express": "^4.16.4",
     "macaddress": "^0.2.9",
