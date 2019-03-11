@@ -17,7 +17,7 @@ export class AppComponent {
       publishKey: 'pub-c-28765844-5b7e-4183-824a-c534d918f3de',
       subscribeKey: 'sub-c-80a91b4c-43bd-11e9-b827-4e8ff5d9951b' });
 
-    this.sendLocation = interval(60000);
+    this.sendLocation = interval(10000);
     this.sendLocation = this.sendLocation.subscribe(() => {
       if ('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition((position) => {
