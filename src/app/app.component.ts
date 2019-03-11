@@ -39,10 +39,10 @@ export class AppComponent {
             Device: this.getDeviceInfo(),
             DeviceType:this.getDeviceType()
           };
-          pubnub.publish({ channel: 'Mobile_Location', message: JSON.stringify(this.Data) }, (response) => {
-           console.log(response);
-           console.log(JSON.stringify(this.Data))
-         });
+        //   pubnub.publish({ channel: 'Mobile_Location', message: JSON.stringify(this.Data) }, (response) => {
+        //    console.log(response);
+        //    console.log(JSON.stringify(this.Data))
+        //  });
         });
       }
     });
