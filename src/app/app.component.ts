@@ -40,17 +40,13 @@ export class AppComponent {
             DeviceType:this.getDeviceType()
           };
           pubnub.publish({ channel: 'Mobile_Location', message: JSON.stringify(this.Data) }, (response) => {
-            console.log(response);
-          });
+           console.log(response);
+           console.log(JSON.stringify(this.Data))
+         });
         });
       }
     });
   }
-
-  getLocation() {
-
-  }
-
   getDeviceInfo() {    
     return this.deviceService.getDeviceInfo();
   }
@@ -62,13 +58,13 @@ export class AppComponent {
     }
   }
 
-  setgetLocalStorageByKey(key: string) {
-    if (!!!localStorage.getItem(key)) {
+  setgetLocalStorageByKey(key: string) {    
+    var d=localStorage.getItem(key);
+    if (!!!d) {
       var guid = UUID.UUID();
       localStorage.setItem(key, guid);
       return guid;
     }
-    return localStorage.getItem(key);
-    ;
+    return localStorage.getItem(key);    
   }
 }
