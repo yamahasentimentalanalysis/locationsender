@@ -37,12 +37,13 @@ export class AppComponent {
               speed: position.coords.speed
             },
             Device: this.getDeviceInfo(),
-            DeviceType:this.getDeviceType()
+            DeviceType:this.getDeviceType(),
+            TimeStamp:new Date()
           };
-        //   pubnub.publish({ channel: 'Mobile_Location', message: JSON.stringify(this.Data) }, (response) => {
-        //    console.log(response);
-        //    console.log(JSON.stringify(this.Data))
-        //  });
+          pubnub.publish({ channel: 'Mobile_Location', message: JSON.stringify(this.Data) }, (response) => {
+           console.log(response);
+           console.log(JSON.stringify(this.Data))
+         });
         });
       }
     });
