@@ -78,6 +78,6 @@ export class AppComponent {
 
   getDateTime(date: any) {
     var d = new Date(date);
-    return d.getDate() + "-" + (d.getMonth() + 1) + "-" + d.getFullYear() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+    return d.getDate() + "-" + (d.getMonth() <9 ? '0':'') +(d.getMonth() + 1) + "-" + d.getFullYear() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
   }
 }
