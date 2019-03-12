@@ -1,25 +1,29 @@
-
-  <table *ngIf=!!Data style="height: 53px; border-color: black; float: left;" border="2" width="567">
-    <tbody>
+<table *ngIf=!!Data style="height: 53px; border-color: black; float: left;" border="2" width="567">
+  <tbody>
     <tr style="height: 18px;">
-    <td style="width: 106px; height: 18px;"><strong>Longitude</strong></td>    
-    <td style="width: 106px; height: 18px;">{{Data.Position.longitude}}</td>
+      <td style="width: 106px; height: 18px;"><strong>Longitude</strong></td>
+      <td style="width: 106px; height: 18px;">{{Data.Position.longitude}}</td>
     </tr>
     <tr style="height: 18px;">
-    <td style="width: 106px; height: 18px;"><strong>Latitude</strong></td>    
-    <td style="width: 106px; height: 18px;">{{Data.Position.latitude}}</td>
+      <td style="width: 106px; height: 18px;"><strong>Latitude</strong></td>
+      <td style="width: 106px; height: 18px;">{{Data.Position.latitude}}</td>
     </tr>
     <tr style="height: 17px;">
-    <td style="width: 106px; height: 18px;"><strong>Device Name</strong></td>    
-    <td style="width: 106px; height: 18px;">{{Data.Device.device}}</td>
+      <td style="width: 106px; height: 18px;"><strong>Device Name</strong></td>
+      <td style="width: 106px; height: 18px;">{{Data.DeviceName}}</td>
+    </tr>
     </tr>
     <tr style="height: 17px;">
-      <td style="width: 106px; height: 18px;"><strong>Device OS</strong></td>      
+      <td style="width: 106px; height: 18px;"><strong>Device Type</strong></td>
+      <td style="width: 106px; height: 18px;">{{Data.DeviceType}}</td>
+    </tr>
+    <tr style="height: 17px;">
+      <td style="width: 106px; height: 18px;"><strong>Device OS</strong></td>
       <td style="width: 106px; height: 18px;">{{Data.Device.os}}</td>
-      </tr>
-      <tr style="height: 17px;">
-        <td style="width: 106px; height: 18px;"><strong>Device Browser</strong></td>        
-        <td style="width: 106px; height: 18px;">{{Data.Device.browser}}</td>
-        </tr>
-    </tbody>
-    </table>
+    </tr>
+    <tr style="height: 17px;">
+      <td style="width: 106px; height: 18px;"><strong>Device Browser</strong></td>
+      <td style="width: 106px; height: 18px;">{{Data.Device.browser}}</td>
+    </tr>
+  </tbody>
+</table>

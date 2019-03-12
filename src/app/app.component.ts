@@ -12,8 +12,8 @@ export class AppComponent {
   sendLocation: any;
   pubnubb: any;
   Data: any;
-  keyName:string='ClientKey';
-  constructor(pubnub: PubNubAngular,    
+  keyName: string = 'ClientKey';
+  constructor(pubnub: PubNubAngular,
     private deviceService: DeviceDetectorService) {
     pubnub.init({
       publishKey: 'pub-c-28765844-5b7e-4183-824a-c534d918f3de',
@@ -26,7 +26,7 @@ export class AppComponent {
       if ('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition((position) => {
           this.Data = {
-            Id:this.setgetLocalStorageByKey(this.keyName),
+            Id: this.setgetLocalStorageByKey(this.keyName),
             Position: {
               accuracy: position.coords.accuracy,
               altitude: position.coords.altitude,
@@ -37,35 +37,42 @@ export class AppComponent {
               speed: position.coords.speed
             },
             Device: this.getDeviceInfo(),
-            DeviceType:this.getDeviceType(),
-            TimeStamp:new Date()
+            DeviceType: this.getDeviceType(),
+            DeviceName: this.getDeviceName(),
+            TimeStamp: new Date()
           };
+
           pubnub.publish({ channel: 'Mobile_Location', message: JSON.stringify(this.Data) }, (response) => {
-           console.log(response);
-           console.log(JSON.stringify(this.Data))
-         });
+            console.log(response);
+            console.log(JSON.stringify(this.Data))
+          });
         });
       }
     });
   }
-  getDeviceInfo() {    
+  getDeviceInfo() {
     return this.deviceService.getDeviceInfo();
   }
-  getDeviceType(){
-    return { 
-    Mobile:this.deviceService.isMobile(),
-    Tablet:this.deviceService.isTablet(),
-    Desktop: this.deviceService.isDesktop()
+  getDeviceType() {
+    return {
+      Mobile: this.deviceService.isMobile(),
+      Tablet: this.deviceService.isTablet(),
+      Desktop: this.deviceService.isDesktop()
     }
   }
 
-  setgetLocalStorageByKey(key: string) {    
-    var d=localStorage.getItem(key);
+  getDeviceName() {
+    var dd = this.getDeviceInfo().userAgent;
+    return (dd.substring(dd.indexOf("("), dd.indexOf(")")).split(';')[2]).trim()
+  }
+
+  setgetLocalStorageByKey(key: string) {
+    var d = localStorage.getItem(key);
     if (!!!d) {
       var guid = UUID.UUID();
       localStorage.setItem(key, guid);
       return guid;
     }
-    return localStorage.getItem(key);    
+    return localStorage.getItem(key);
   }
 }
