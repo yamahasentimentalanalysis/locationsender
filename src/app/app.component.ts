@@ -75,4 +75,9 @@ export class AppComponent {
     }
     return localStorage.getItem(key);
   }
+
+  getDateTime(date: any) {
+    var d = new Date(date);
+    return d.getDate() + "-" + (d.getMonth() + 1) + "-" + d.getFullYear() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+  }
 }
