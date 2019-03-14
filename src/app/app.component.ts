@@ -30,7 +30,7 @@ export class AppComponent {
       uuid: this.setgetLocalStorageByKey(this.keyName)
     });
 
-    this.sendLocation = interval(10000);
+    this.sendLocation = interval(3000);
     this.sendLocation = this.sendLocation.subscribe(() => {
       this.getLocation();
       pubnub.publish({ channel: 'Mobile_Location', message: JSON.stringify(this.Data) }, (response) => {
